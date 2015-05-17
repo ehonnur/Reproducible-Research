@@ -15,7 +15,7 @@ library(ggplot2)
 total.steps <- tapply(data$steps, data$date, FUN = sum, na.rm = TRUE)
 qplot(total.steps, binwidth = 1000, xlab = "total number of steps taken each day")
 ```
-
+![PA1_Plot1](figure/PA1_Plot1.png) 
 
 ```r
 mean(total.steps, na.rm = TRUE)
@@ -43,7 +43,7 @@ averages <- aggregate(x = list(steps = data$steps), by = list(interval = data$in
 ggplot(data = averages, aes(x = interval, y = steps)) + geom_line() + xlab("5-minute interval") + 
     ylab("average number of steps taken")
 ```
-
+![PA1_Plot2](figure/PA1_Plot2.png) 
 
 On average across all the days in the dataset, the 5-minute interval contains
 the maximum number of steps?
@@ -99,7 +99,7 @@ Now, using the filled data set, let's make a histogram of the total number of st
 total.steps <- tapply(filled.data$steps, filled.data$date, FUN = sum)
 qplot(total.steps, binwidth = 1000, xlab = "total number of steps taken each day")
 ```
-
+![PA1_Plot3](figure/PA1_Plot3.png) 
 
 ```r
 mean(total.steps)
@@ -150,3 +150,4 @@ averages <- aggregate(steps ~ interval + day, data = filled.data, mean)
 ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) + 
     xlab("5-minute interval") + ylab("Number of steps")
 ```
+![PA1_Plot4](figure/PA1_Plot4.png) 
